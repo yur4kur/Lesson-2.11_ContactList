@@ -11,9 +11,31 @@ struct Person {
     let phoneNumber: String
     let email: String
     
+    init(name: String, surname: String, phoneNumber: String, email: String) {
+        self.name = name
+        self.surname = surname
+        self.phoneNumber = phoneNumber
+        self.email = email
+    }
+    
     static func getPersons() -> [Person] {
         var contactList: [Person] = []
+        
+        var names = DataStore().names.shuffled()
+        var surnames = DataStore().surnames.shuffled()
+        var phones = DataStore().phoneNumbers.shuffled()
+        var emails = DataStore().emails.shuffled()
+        
+        while !names.isEmpty {
+            contactList.append(
+                Person(
+                name: names.removeLast(),
+                surname: surnames.removeLast(),
+                phoneNumber: phones.removeLast(),
+                email: emails.removeLast()))
+        }
         
         return contactList
     }
 }
+
