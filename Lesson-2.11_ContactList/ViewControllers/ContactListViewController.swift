@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ContactListViewController: UITableViewController {
+final class ContactListViewController: UITableViewController {
 
     // MARK: - Public properties
     
@@ -46,7 +46,9 @@ class ContactListViewController: UITableViewController {
         case 0:
             let phoneCell = tableView.dequeueReusableCell(
                 withIdentifier: "phone", for: indexPath)
+           
             let person = contactList[indexPath.section]
+            
             var phoneContent = phoneCell.defaultContentConfiguration()
             phoneContent.text = person.phoneNumber
             phoneContent.image = UIImage(systemName: "phone")
@@ -57,8 +59,10 @@ class ContactListViewController: UITableViewController {
         default:
             let emailCell = tableView.dequeueReusableCell(
                 withIdentifier: "email", for: indexPath)
-            var emailContent = emailCell.defaultContentConfiguration()
+            
             let person = contactList[indexPath.section]
+            
+            var emailContent = emailCell.defaultContentConfiguration()
             emailContent.text = person.email
             emailContent.image = UIImage(systemName: "tray")
             emailCell.contentConfiguration = emailContent

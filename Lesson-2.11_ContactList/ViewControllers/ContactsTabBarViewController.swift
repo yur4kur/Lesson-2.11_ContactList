@@ -19,13 +19,14 @@ final class ContactsTabBarViewController: UITabBarController {
         super.viewDidLoad()
         
         viewControllers?.forEach{ viewController in
-            guard let navigationVC = viewController as?
-                    UINavigationController else { return }
+            guard let navigationVC = viewController
+                    as? UINavigationController else { return }
             
-            if let contactListVC = navigationVC.topViewController as?
-                PersonsListViewController {
+            if let contactListVC = navigationVC.topViewController
+                as? PersonsListViewController {
                 contactListVC.contactList = personsList
-            } else if let fullContactListVC = navigationVC.topViewController as?                                                        ContactListViewController {
+            } else if let fullContactListVC = navigationVC.topViewController
+                        as? ContactListViewController {
                 fullContactListVC.contactList = personsList
             }
         }

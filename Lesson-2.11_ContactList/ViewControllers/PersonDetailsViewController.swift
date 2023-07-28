@@ -17,7 +17,6 @@ final class PersonDetailsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         navigationItem.title = person.fullName
     }
 
@@ -35,6 +34,7 @@ final class PersonDetailsViewController: UITableViewController {
         case 0:
             let phoneCell = tableView.dequeueReusableCell(
                 withIdentifier: "phone", for: indexPath)
+            
             var phoneContent = phoneCell.defaultContentConfiguration()
             phoneContent.text = String("Phone: \(person.phoneNumber)")
             phoneCell.contentConfiguration = phoneContent
@@ -44,6 +44,7 @@ final class PersonDetailsViewController: UITableViewController {
         default:
             let emailCell = tableView.dequeueReusableCell(
                 withIdentifier: "email", for: indexPath)
+            
             var emailContent = emailCell.defaultContentConfiguration()
             emailContent.text = String("E-mail: \(person.email)")
             emailCell.contentConfiguration = emailContent
