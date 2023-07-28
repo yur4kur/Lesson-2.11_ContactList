@@ -18,12 +18,12 @@ final class ContactDetailsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = String("\(person.name) \(person.surname)")
+        navigationItem.title = person.fullName
     }
 
 
     // MARK: - Table view data source
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }

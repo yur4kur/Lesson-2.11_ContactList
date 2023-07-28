@@ -10,6 +10,9 @@ struct Person {
     let surname: String
     let phoneNumber: String
     let email: String
+    var fullName: String {
+        "\(name) \(surname)"
+    }
     
     init(name: String, surname: String, phoneNumber: String, email: String) {
         self.name = name

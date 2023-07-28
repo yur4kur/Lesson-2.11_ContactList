@@ -24,7 +24,7 @@ final class ContactListViewController: UITableViewController {
         let contact = contactList[indexPath.row]
         
         var content = cell.defaultContentConfiguration()
-        content.text = String("\(contact.name) \(contact.surname)")
+        content.text = contact.fullName
         cell.contentConfiguration = content
         
         return cell
