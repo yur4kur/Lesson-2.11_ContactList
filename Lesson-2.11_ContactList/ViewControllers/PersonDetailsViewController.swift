@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ContactDetailsViewController: UITableViewController {
+final class PersonDetailsViewController: UITableViewController {
     
     // MARK: - Public properties
     
