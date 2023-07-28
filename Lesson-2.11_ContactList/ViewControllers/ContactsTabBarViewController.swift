@@ -14,15 +14,16 @@ class ContactsTabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewControllers?.forEach{ vc in
-            if let navigationVC = vc as? UINavigationController {
-                if let contactListVC = navigationVC.topViewController as? PersonsListViewController {
-                    contactListVC.contactList = personsList
-                }
-            } else if let fullContactListVC = vc as? ContactListViewController {
-                fullContactListVC.contactList = personsList
+        viewControllers?.forEach{ viewController in
+            guard let navigationVC = viewController as? UINavigationController else { return }
+            
+            if let contactListVC = navigationVC.topViewController as? PersonsListViewController {
+            contactListVC.contactList = personsList
+            } else if let fullContactListVC = navigationVC.topViewController as? ContactListViewController {
+            fullContactListVC.contactList = personsList
             }
         }
     }
 }
+
 
