@@ -18,9 +18,8 @@ final class ContactListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView,
                             willDisplayHeaderView view: UIView,
                             forSection section: Int) {
-        view.tintColor = .opaqueSeparator
         guard let header = view as? UITableViewHeaderFooterView else { return }
-        header.textLabel?.textColor = .black
+        header.backgroundConfiguration?.backgroundColor = .opaqueSeparator
     }
 
     // MARK: - Table view data source

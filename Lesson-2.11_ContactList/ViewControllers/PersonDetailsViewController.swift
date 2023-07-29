@@ -20,7 +20,6 @@ final class PersonDetailsViewController: UITableViewController {
         navigationItem.title = person.fullName
     }
 
-
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView,

@@ -24,7 +24,6 @@ final class PersonsListViewController: UITableViewController {
                             cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "contact",
                                                  for: indexPath)
-        
         let contact = contactList[indexPath.row]
         
         var content = cell.defaultContentConfiguration()
@@ -41,6 +40,4 @@ final class PersonsListViewController: UITableViewController {
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
         contactDetailsVC?.person = contactList[indexPath.row]
     }
-    
-
 }

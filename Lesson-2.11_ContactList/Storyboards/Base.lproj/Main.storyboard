@@ -109,7 +109,7 @@
                 <navigationController id="zuZ-ET-opu" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Persons" image="person.fill" catalog="system" id="jlE-Pl-hIE"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="CeT-Gy-XeU">
-                        <rect key="frame" x="0.0" y="20" width="320" height="92.5"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="98.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="largeTitleTextAttributes">
                             <color key="textShadowColor" red="0.83598985869999998" green="0.84244762849999999" blue="0.91591566800000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -129,6 +129,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="hlN-Df-kut" customClass="ContactsTabBarViewController" customModule="Lesson_2_11_ContactList" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ub5-rA-BPW">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -211,7 +212,7 @@
                     <tabBarItem key="tabBarItem" title="Contacts" image="person.crop.circle.fill" catalog="system" id="VoA-gf-2f6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="mUQ-nD-m3K">
-                        <rect key="frame" x="0.0" y="20" width="320" height="98.5"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="92.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
