@@ -10,6 +10,7 @@ struct Person {
     let surname: String
     let phoneNumber: String
     let email: String
+    
     var fullName: String {
         "\(name) \(surname)"
     }
@@ -17,22 +18,27 @@ struct Person {
     static func getPersons() -> [Person] {
         var contactList: [Person] = []
         
-        var names = dataManager.names.shuffled()
-        var surnames = dataManager.surnames.shuffled()
-        var phones = dataManager.phoneNumbers.shuffled()
-        var emails = dataManager.emails.shuffled()
+        var names = DataStore.shared.names.shuffled()
+        var surnames = DataStore.shared.surnames.shuffled()
+        var phones = DataStore.shared.phoneNumbers.shuffled()
+        var emails = DataStore.shared.emails.shuffled()
         
-        while !names.isEmpty {
+        let iterationCount = min(names.count,
+                                 surnames.count,
+                                 phones.count,
+                                 emails.count)
+        
+        for index in 0..<iterationCount {
             contactList.append(
                 Person(
-                name: names.removeLast(),
-                surname: surnames.removeLast(),
-                phoneNumber: phones.removeLast(),
-                email: emails.removeLast()))
+                name: names[index],
+                surname: surnames[index],
+                phoneNumber: phones[index],
+                email: emails[index]))
         }
         
         return contactList
     }
 }
 
-fileprivate let dataManager = DataStore()
+

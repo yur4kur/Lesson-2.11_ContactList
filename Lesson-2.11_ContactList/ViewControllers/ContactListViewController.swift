@@ -16,10 +16,27 @@ final class ContactListViewController: UITableViewController {
     // MARK: - Table view delegate
     
     override func tableView(_ tableView: UITableView,
+                            viewForHeaderInSection section: Int) -> UIView? {
+        let fullNameLabel = UILabel(
+        frame: CGRect(
+            x: 16,
+            y: 3,
+            width: tableView.frame.width,
+            height: 20))
+        fullNameLabel.text = contactList[section].fullName
+        fullNameLabel.font = UIFont.boldSystemFont(ofSize: 17)
+        fullNameLabel.textColor = .white
+        
+        let contentView = UIView()
+        contentView.addSubview(fullNameLabel)
+        
+        return contentView
+    }
+    
+    override func tableView(_ tableView: UITableView,
                             willDisplayHeaderView view: UIView,
                             forSection section: Int) {
-        guard let header = view as? UITableViewHeaderFooterView else { return }
-        header.backgroundConfiguration?.backgroundColor = .opaqueSeparator
+        view.backgroundColor = .gray
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -45,28 +62,22 @@ final class ContactListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView,
                             cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let person = contactList[indexPath.section]
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell",
+                                                for: indexPath)
+        var cellContent = cell.defaultContentConfiguration()
+        
         switch indexPath.row {
         case 0:
-            let phoneCell = tableView.dequeueReusableCell(
-                withIdentifier: "phone", for: indexPath)
-           
-            var phoneContent = phoneCell.defaultContentConfiguration()
-            phoneContent.text = person.phoneNumber
-            phoneContent.image = UIImage(systemName: "phone")
-            phoneCell.contentConfiguration = phoneContent
-            
-            return phoneCell
-        
+            cellContent.text = person.phoneNumber
+            cellContent.image = UIImage(systemName: "phone")
         default:
-            let emailCell = tableView.dequeueReusableCell(
-                withIdentifier: "email", for: indexPath)
-            
-            var emailContent = emailCell.defaultContentConfiguration()
-            emailContent.text = person.email
-            emailContent.image = UIImage(systemName: "tray")
-            emailCell.contentConfiguration = emailContent
-            
-            return emailCell
+            cellContent.text = person.email
+            cellContent.image = UIImage(systemName: "tray")
         }
+        
+        cell.contentConfiguration = cellContent
+        
+        return cell
     }
 }

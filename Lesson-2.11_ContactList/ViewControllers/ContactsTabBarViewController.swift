@@ -8,20 +8,19 @@
 import UIKit
 
 final class ContactsTabBarViewController: UITabBarController {
-    
-    // MARK: - Private properties
-    
-    fileprivate let personsList = Person.getPersons()
-    
+
     // MARK: - Override methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         fetchDataToControllers()
     }
     
+    // MARK: - Private methods
+    
     fileprivate func fetchDataToControllers() {
+        let personsList = Person.getPersons()
+        
         viewControllers?.forEach{ viewController in
             guard let navigationVC = viewController
                     as? UINavigationController else { return }

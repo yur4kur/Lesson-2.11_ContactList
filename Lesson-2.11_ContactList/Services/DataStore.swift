@@ -6,6 +6,9 @@
 //
 
 final class DataStore {
+    
+    static let shared = DataStore()
+    
     let names = [
         "Leanne",
         "Ervin",
