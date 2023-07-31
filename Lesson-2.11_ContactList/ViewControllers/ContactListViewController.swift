@@ -21,6 +21,10 @@ final class ContactListViewController: UITableViewController {
         guard let header = view as? UITableViewHeaderFooterView else { return }
         header.backgroundConfiguration?.backgroundColor = .opaqueSeparator
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 
     // MARK: - Table view data source
 
@@ -35,19 +39,17 @@ final class ContactListViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView,
                             numberOfRowsInSection section: Int) -> Int {
-        return 2
+        2
     }
 
     override func tableView(_ tableView: UITableView,
                             cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        let person = contactList[indexPath.section]
         switch indexPath.row {
         case 0:
             let phoneCell = tableView.dequeueReusableCell(
                 withIdentifier: "phone", for: indexPath)
            
-            let person = contactList[indexPath.section]
-            
             var phoneContent = phoneCell.defaultContentConfiguration()
             phoneContent.text = person.phoneNumber
             phoneContent.image = UIImage(systemName: "phone")
@@ -58,8 +60,6 @@ final class ContactListViewController: UITableViewController {
         default:
             let emailCell = tableView.dequeueReusableCell(
                 withIdentifier: "email", for: indexPath)
-            
-            let person = contactList[indexPath.section]
             
             var emailContent = emailCell.defaultContentConfiguration()
             emailContent.text = person.email

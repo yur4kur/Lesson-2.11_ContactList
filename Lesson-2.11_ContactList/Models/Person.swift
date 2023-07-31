@@ -14,20 +14,13 @@ struct Person {
         "\(name) \(surname)"
     }
     
-    init(name: String, surname: String, phoneNumber: String, email: String) {
-        self.name = name
-        self.surname = surname
-        self.phoneNumber = phoneNumber
-        self.email = email
-    }
-    
     static func getPersons() -> [Person] {
         var contactList: [Person] = []
         
-        var names = DataStore().names.shuffled()
-        var surnames = DataStore().surnames.shuffled()
-        var phones = DataStore().phoneNumbers.shuffled()
-        var emails = DataStore().emails.shuffled()
+        var names = dataManager.names.shuffled()
+        var surnames = dataManager.surnames.shuffled()
+        var phones = dataManager.phoneNumbers.shuffled()
+        var emails = dataManager.emails.shuffled()
         
         while !names.isEmpty {
             contactList.append(
@@ -42,3 +35,4 @@ struct Person {
     }
 }
 
+fileprivate let dataManager = DataStore()

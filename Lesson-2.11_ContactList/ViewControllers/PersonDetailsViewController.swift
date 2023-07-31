@@ -24,30 +24,31 @@ final class PersonDetailsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView,
                             numberOfRowsInSection section: Int) -> Int {
-        return 2
+        2
     }
 
     override func tableView(_ tableView: UITableView,
                             cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         switch indexPath.row {
         case 0:
             let phoneCell = tableView.dequeueReusableCell(
                 withIdentifier: "phone", for: indexPath)
-            
+
             var phoneContent = phoneCell.defaultContentConfiguration()
             phoneContent.text = String("Phone: \(person.phoneNumber)")
             phoneCell.contentConfiguration = phoneContent
-            
+
             return phoneCell
-        
+
         default:
             let emailCell = tableView.dequeueReusableCell(
                 withIdentifier: "email", for: indexPath)
-            
+
             var emailContent = emailCell.defaultContentConfiguration()
             emailContent.text = String("E-mail: \(person.email)")
             emailCell.contentConfiguration = emailContent
-            
+
             return emailCell
         }
     }

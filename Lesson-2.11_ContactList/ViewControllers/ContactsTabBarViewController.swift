@@ -18,6 +18,10 @@ final class ContactsTabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        fetchDataToControllers()
+    }
+    
+    fileprivate func fetchDataToControllers() {
         viewControllers?.forEach{ viewController in
             guard let navigationVC = viewController
                     as? UINavigationController else { return }
